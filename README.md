@@ -1,4 +1,14 @@
-# hello-ssr demo
+# hello-SSR demo
+
+
+
+
+
+## 说明
+
+使用vue3 + vue router + vuex + typescript，编写的SSR demo 。
+
+
 
 ## Project setup
 ```
