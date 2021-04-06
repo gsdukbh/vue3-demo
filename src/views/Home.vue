@@ -1,18 +1,30 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <img alt="Vue logo" src="../assets/logo.png"/>
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+
+    <!--    store-->
+    <h1>vuex  </h1>
+    <h2> {{ win }} </h2>
+
+
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+import {defineComponent} from 'vue'
+import {mapGetters} from 'vuex'
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 
-@Options({
-  components: {
-    HelloWorld,
-  },
+export default defineComponent({
+  components: {HelloWorld},
+  computed: {
+    ...mapGetters({
+      win: 'win'
+    })
+  }
+
 })
-export default class Home extends Vue {}
+
+
 </script>
