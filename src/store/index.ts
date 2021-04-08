@@ -1,11 +1,11 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    win: 'hello win'
+    win: 'hello win',
   },
-  getters:{
-    win: state => state.win
+  getters: {
+    win: (state) => state.win,
   },
   mutations: {},
   actions: {},
