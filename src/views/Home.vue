@@ -6,6 +6,7 @@
     <!--    store-->
     <h1>vuex</h1>
     <h2>{{ win }}</h2>
+    <h2>{{ google }}</h2>
   </div>
 </template>
 
@@ -20,6 +21,11 @@ export default defineComponent({
     ...mapGetters({
       win: 'win',
     }),
+  },
+  setup() {
+    return {
+      google: 'tian',
+    };
   },
 });
 </script>

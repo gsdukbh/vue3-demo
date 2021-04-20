@@ -12,5 +12,5 @@ if (storeInitialState) {
 
 router.isReady()
     .then(() => {
-        app.mount('#app', true);
+        app.mount('#app');
     });
