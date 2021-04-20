@@ -1,4 +1,4 @@
-# hello-SSR demo
+# vue3-router-SSR demo
 
 
 
@@ -33,6 +33,10 @@ yarn test:unit
 ### Lints and fixes files
 ```
 yarn lint
+```
+### Run SSR
+```bash
+yarn start
 ```
 
 ### Customize configuration
