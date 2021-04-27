@@ -1,5 +1,6 @@
 /* eslint-disable */
 /* @ts-ignore */
+
 const serialize = require('serialize-javascript');
 const path = require('path');
 const express = require('express');
@@ -16,10 +17,10 @@ const server = express();
 // 并使用它来获取Vue应用
 
 // @ts-ignore
-const appPath = path.join(__dirname, '../dist', 'server', manifest['app.js']);
+const appPath = path.join(__dirname, '../dist/server', manifest['app.js']);
 const createApp = require(appPath).default;
 
-const clientDistPath = '../dist/client';
+const clientDistPath = '../dist/server';
 
 // @ts-ignore
 server.use('/img', express.static(path.join(__dirname, clientDistPath, 'img')));
@@ -33,8 +34,9 @@ server.use('/favicon.ico', express.static(path.join(__dirname, clientDistPath, '
 // 处理我们应用程序中的所有路线
 // @ts-ignore
 server.get('*', async (req, res) => {
-    const {app, store} = await createApp(req);
-
+    const {app, store} = await createApp(req );
+    console.log('wo ')
+    console.log(req.url)
     let appContent = await renderToString(app);
 
     const renderState = `

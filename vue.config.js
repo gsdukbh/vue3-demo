@@ -20,7 +20,7 @@ module.exports = {
           // filename: '[path].gz[query]',
           algorithm: 'gzip',
           test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
-          threshold: 10240, // 只有大小大于该值的资源会被处理 10240
+          threshold: 1024, // 只有大小大于该值的资源会被处理 10240
           minRatio: 0.8, // 只有压缩率小于这个值的资源才会被处理
           deleteOriginalAssets: false, // 不删除原文件
         })
@@ -59,6 +59,6 @@ module.exports = {
     webpackConfig.plugins.delete('progress');
     webpackConfig.plugins.delete('friendly-errors');
 
-    // console.log(webpackConfig.toConfig())
+    // console.log(webpackConfig.toConfig());
   },
 };
