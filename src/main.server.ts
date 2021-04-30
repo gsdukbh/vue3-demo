@@ -11,7 +11,7 @@ export default (url: RouteLocationRaw) =>
         console.log('成功');
       })
       .catch((e) => {
-        console.log(e);
+        console.log('错误 ', e);
       });
     router
       .isReady()

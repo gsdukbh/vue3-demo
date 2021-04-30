@@ -6,7 +6,7 @@ const path = require('path');
 const express = require('express');
 const fs = require('fs');
 const {renderToString} = require('@vue/server-renderer');
-const manifest = require('../dist/server/ssr-manifest.json');
+const manifest = require('../dist/ssr-manifest.json');
 
 // Create the express app.
 const server = express();
@@ -17,10 +17,10 @@ const server = express();
 // 并使用它来获取Vue应用
 
 // @ts-ignore
-const appPath = path.join(__dirname, '../dist/server', manifest['app.js']);
+const appPath = path.join(__dirname, '../dist', manifest['app.js']);
 const createApp = require(appPath).default;
 
-const clientDistPath = '../dist/server';
+const clientDistPath = '../dist';
 
 // @ts-ignore
 server.use('/img', express.static(path.join(__dirname, clientDistPath, 'img')));
@@ -34,8 +34,7 @@ server.use('/favicon.ico', express.static(path.join(__dirname, clientDistPath, '
 // 处理我们应用程序中的所有路线
 // @ts-ignore
 server.get('*', async (req, res) => {
-    const {app, store} = await createApp(req );
-    console.log('wo ')
+    const {app, store} = await createApp(req.url);
     console.log(req.url)
     let appContent = await renderToString(app);
 

@@ -28,10 +28,10 @@ module.exports = {
     }
   },
   chainWebpack: (webpackConfig) => {
-    webpackConfig.module.rule('vue').uses.delete('cache-loader');
-    webpackConfig.module.rule('js').uses.delete('cache-loader');
-    webpackConfig.module.rule('ts').uses.delete('cache-loader');
-    webpackConfig.module.rule('tsx').uses.delete('cache-loader');
+    // webpackConfig.module.rule('vue').uses.delete('cache-loader');
+    // webpackConfig.module.rule('js').uses.delete('cache-loader');
+    // webpackConfig.module.rule('ts').uses.delete('cache-loader');
+    // webpackConfig.module.rule('tsx').uses.delete('cache-loader');
 
     if (!process.env.SSR) {
       // This is required for repl.it to play nicely with the Dev Server
