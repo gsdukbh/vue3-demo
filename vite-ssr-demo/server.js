@@ -33,14 +33,14 @@ async function createServer(
             server: {
                 middlewareMode: true,
                 watch: {
-                    // During tests we edit the files too fast and sometimes chokidar
-                    // misses change events, so enforce polling for consistency
+                    // 在测试过程中，我们编辑文件的速度过快，有时会过长
+                    // 错过更改事件，因此强制轮询以保持一致性
                     usePolling: true,
                     interval: 100
                 }
             }
         })
-        // use vite's connect instance as middleware
+        // 使用vite的connect实例作为中间件
         app.use(vite.middlewares)
     } else {
         app.use(require('compression')())
@@ -57,7 +57,7 @@ async function createServer(
 
             let template, render
             if (!isProd) {
-                // always read fresh template in dev
+                // 总是在开发中使用最新的模板
                 template = fs.readFileSync(resolve('index.html'), 'utf-8')
                 template = await vite.transformIndexHtml(url, template)
                 render = (await vite.ssrLoadModule('/src/server.js')).render
