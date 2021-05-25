@@ -1,12 +1,9 @@
-// @ts-ignore
 import {createMemoryHistory, createRouter, createWebHistory} from 'vue-router'
 
 
 // Auto generates routes from vue files under ./pages
 // https://cn.vitejs.dev/guide/features.html#glob-import
 const pages = import.meta.glob('../pages/*.vue')
-
-console.log(pages)
 
 const routes = Object.keys(pages).map((path) => {
 
@@ -20,7 +17,7 @@ const routes = Object.keys(pages).map((path) => {
     }
 })
 
-console.log(" routes :", routes)
+console.log(import.meta.env.SSR)
 
 const router = createRouter({
     // import.meta.env.SSR is injected by Vite.
