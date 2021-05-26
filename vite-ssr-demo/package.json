@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "client": "vite",
     "dev": "node server",
     "test:unit": "vue-cli-service test:unit",
     "buildssr": "yarn buildssr:client && yarn buildssr:server",
     "buildssr:client": "vite build --ssrManifest --outDir dist/client",
-    "buildssr:server": "vite build --ssr src/server.js --outDir dist/server",
+    "buildssr:server": "vite build --ssr src/entry-server.ts --outDir dist/server",
     "debug": "node --inspect-brk server",
     "generate": "vite build --ssrManifest --outDir dist/static && yarn buildssr:server && node prerender",
     "servessr": "cross-env NODE_ENV=production node server"

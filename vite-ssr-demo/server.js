@@ -59,10 +59,10 @@ async function createServer(
                 // 总是在开发中使用最新的模板
                 template = fs.readFileSync(resolve('index.html'), 'utf-8')
                 template = await vite.transformIndexHtml(url, template)
-                render = (await vite.ssrLoadModule('/src/server.js')).render
+                render = (await vite.ssrLoadModule('/src/entry-server.ts')).render
             } else {
                 template = indexProd
-                render = require('./dist/server/server.js').render
+                render = require('./dist/server/entry-server.js').render
             }
 
             const [appHtml, preloadLinks] = await render(url, manifest)
